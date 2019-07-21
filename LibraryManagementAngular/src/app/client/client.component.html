@@ -1,0 +1,37 @@
+<div class="container">
+    <kendo-grid class="mt-3 w-100 h-auto" [data]="clients"
+            [pageSize]="10"
+            [pageable]="true"
+            [sortable]="true"
+            [filterable]="false"
+            [groupable]="false"
+            [selectable]="true"
+            [resizable]="true"
+            [reorderable]="false"
+            [height]="540">
+  <ng-template kendoGridToolbarTemplate>
+    <button class="k-button" (click)="addNewClient()" >Add Client</button>
+  </ng-template>
+  <kendo-grid-column field="EditClient" title="Edit Client" [width]="50"
+                    [minResizableWidth]="50" [filterable]="false">
+    <ng-template kendoGridCellTemplate let-book>
+            <i class="fa fa-edit fa-2x" (click)='editClient(client)'></i>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="Name" title="Name" [width]="100"
+                    [minResizableWidth]="100">
+  </kendo-grid-column>
+  <kendo-grid-column field="Phone" title="Phone" width="100">
+  </kendo-grid-column>
+  <kendo-grid-column field="Address" title="Address" width="100">
+  </kendo-grid-column>
+  <kendo-grid-column field="City" title="City" width="100">
+</kendo-grid-column>
+  <kendo-grid-column field="DeleteClient" title="Delete Client" [width]="70"
+                    [minResizableWidth]="70" [filterable]="false">
+    <ng-template kendoGridCellTemplate let-book>
+        <i class="fa fa-trash fa-2x" (click)='deleteClient(client.Id)'></i>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>
+</div>

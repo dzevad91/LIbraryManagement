@@ -1,0 +1,44 @@
+<div class="container">
+        <kendo-grid class="mt-3 w-100 h-auto" [data]="libraryDetails"
+                [pageSize]="10"
+                [pageable]="true"
+                [sortable]="true"
+                [filterable]="false"
+                [groupable]="false"
+                [selectable]="true"
+                [resizable]="true"
+                [reorderable]="false"
+                [height]="540">
+      <ng-template kendoGridToolbarTemplate>
+        <h3>{{libraryDetails[0]?.LibraryName}}</h3>
+        <button class="k-button">Rentals</button>
+      </ng-template>
+      <!-- <kendo-grid-column field="EditLibrary" title="Edit Library" [width]="50"
+                        [minResizableWidth]="50" [filterable]="false">
+        <ng-template kendoGridCellTemplate let-library>
+          <i class="fa fa-edit fa-2x" (click)='editLibrary(library)'></i>    
+        </ng-template>
+      </kendo-grid-column> -->
+      <!-- <kendo-grid-column  field="BookName" title="Book Name" [width]="100"[minResizableWidth]="100">
+          <ng-template kendoGridCellTemplate let-library>
+            <button class="k-button" [routerLink]="['/library-details', library.id]" (click)='viewLibraryDetails(library.Id)'>{{library.Name}}</button>
+          </ng-template>
+      </kendo-grid-column> -->
+      <kendo-grid-column field="BookName" title="Book Name" width="100">
+      </kendo-grid-column>
+      <kendo-grid-column field="BookCopiesNumber" title="Number of Copies" width="100">
+      </kendo-grid-column>
+      <kendo-grid-column field="RentBook" title="Rent Book" [width]="70"
+                        [minResizableWidth]="70" [filterable]="false">
+        <ng-template kendoGridCellTemplate let-librarydetail>
+            <button class="k-button">Rent Book</button>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="ReturnBook" title="Return Book" [width]="70"
+                      [minResizableWidth]="70" [filterable]="false">
+        <ng-template kendoGridCellTemplate let-librarydetail>
+            <button class="k-button">Return Book</button>
+          </ng-template>
+      </kendo-grid-column>
+    </kendo-grid>
+    </div>

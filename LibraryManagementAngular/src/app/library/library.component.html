@@ -1,0 +1,38 @@
+<div class="container">
+    <kendo-grid class="mt-3 w-100 h-auto" [data]="libraries"
+            [pageSize]="10"
+            [pageable]="true"
+            [sortable]="true"
+            [filterable]="false"
+            [groupable]="false"
+            [selectable]="true"
+            [resizable]="true"
+            [reorderable]="false"
+            [height]="540">
+  <ng-template kendoGridToolbarTemplate>
+    <button class="k-button" (click)="addNewLibrary()" >Add Library</button>
+    <h3 style="text-align: center">Library Management</h3>
+  </ng-template>
+  <kendo-grid-column field="EditLibrary" title="Edit Library" [width]="40"
+                    [minResizableWidth]="40" [filterable]="false">
+    <ng-template kendoGridCellTemplate let-library>
+      <i class="fa fa-edit fa-2x" (click)='editLibrary(library)'></i>    
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column  field="Name" title="Name" [width]="100"[minResizableWidth]="100">
+      <ng-template kendoGridCellTemplate let-library>
+        <button class="k-button" [routerLink]="['/library-details', library.Id]">{{library.Name}}</button>
+      </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="City" title="City" width="70">
+  </kendo-grid-column>
+  <kendo-grid-column field="Address" title="Address" width="100">
+  </kendo-grid-column>
+  <kendo-grid-column field="DeleteLibrary" title="Delete Library" [width]="40"
+                    [minResizableWidth]="40" [filterable]="false">
+    <ng-template kendoGridCellTemplate let-library>
+        <i class="fa fa-trash fa-2x" (click)='deleteLibrary(library.Id)'></i>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>
+</div>
